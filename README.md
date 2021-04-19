@@ -28,7 +28,8 @@ My pet project about the beginner use of Vertx framework in Java
 ### Break down into to end to end tests
 
 
-* Go to _http://localhost:8080/_;
+* Run the _GET http://localhost:8761/your_name_ by browser or run the script _command_get.cmd_;
+* Run the _POST http://localhost:8761/your_name_ or run the script _command_post.cmd_;
 
 
 ### Coding styles sheets
