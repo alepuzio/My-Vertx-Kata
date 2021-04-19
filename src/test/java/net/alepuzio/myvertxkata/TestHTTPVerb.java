@@ -16,7 +16,7 @@ public class TestHTTPVerb extends TestCase {
 
 	public void testGet() {
 		try {
-			Process get = Runtime.getRuntime().exec( String.format("cmd /c start \"\" src\\main\\resources\\%s.bat", "command-get"));
+			Process get = Runtime.getRuntime().exec(command( "command-get"));
 			assertNotNull(get);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -26,12 +26,16 @@ public class TestHTTPVerb extends TestCase {
 
 	public void testPost() {
 		try {
-			Process post = Runtime.getRuntime().exec(String.format("cmd /c start \"\" src\\main\\resources\\%s.bat", "command-post"));
+			Process post = Runtime.getRuntime().exec(command( "command-post"));
 			assertNotNull(post);
 		} catch (IOException e) {
 			e.printStackTrace();
 			assertFalse(true);
 		}
+	}
+
+	private String command(String bat) {
+		return String.format("cmd /c start \"\" src\\main\\resources\\%s.bat", bat);
 	}
 
 }
