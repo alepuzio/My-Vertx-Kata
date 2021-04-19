@@ -1,0 +1,1 @@
+curl http://localhost:8091/hello/alessandro
