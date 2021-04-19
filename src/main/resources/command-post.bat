@@ -1,0 +1,1 @@
+curl --header "Content-Type: application/json" -d "{\"value\":\"VertX Java\"}" http://localhost:8091/hello
