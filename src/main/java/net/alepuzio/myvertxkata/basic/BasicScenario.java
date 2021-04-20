@@ -19,8 +19,8 @@ public class BasicScenario {
 		Vertx vertx = Vertx.vertx();//entry point
 		HttpServer httpServer = vertx.createHttpServer();//http server with default configuration
 		Router router = Router.router(vertx);//receive http request and routes to first matched <i>Route</i>
-		Route handler1 = new GetCommand(router, "/hello/:name").route();
-		/*Route handler2 = */new PostCommand(router, "/hello/").route();//the handlers are pointed by the current router and vertx object
+		new GetCommand(router, "/hello/:name").route();
+		new PostCommand(router, "/hello/").route();//the handlers are pointed by the current router and vertx object
 		httpServer
 			.requestHandler(router::accept)
 			.listen(this.port);

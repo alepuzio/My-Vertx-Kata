@@ -17,17 +17,17 @@ public class TestRouter  {
 
 	@Test
 	public void testRoutersEqualsInSamevertx() {
-		Vertx vertx = Vertx.vertx();// entry point
+		final Vertx vertx = Vertx.vertx();// entry point
 		final Router router1 = Router.router(vertx);// receive http request and routes to first matched <i>Route</i>
 		final Router router2 = Router.router(vertx);// receive http request and routes to first matched <i>Route</i>
-		Assertions.assertEquals(router1, router2);
+		Assertions.assertNotEquals(router1, router2);
 	}
 	
 	@Test
 	public void testRoutersEqualsMoreVertx() {
 		final Router router1 = Router.router( Vertx.vertx());// receive http request and routes to first matched <i>Route</i>
 		final Router router2 = Router.router( Vertx.vertx());// receive http request and routes to first matched <i>Route</i>
-		Assertions.assertEquals(router1, router2);
+		Assertions.assertNotEquals(router1, router2);
 	}
 
 }
