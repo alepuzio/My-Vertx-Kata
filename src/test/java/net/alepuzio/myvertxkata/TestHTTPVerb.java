@@ -35,7 +35,7 @@ public class TestHTTPVerb extends TestCase {
 	}
 
 	private String command(String bat) {
-		return String.format("cmd /c start \"\" src\\test\\resources\\%s.bat", bat);
+		return String.format("cmd /c start \"\" src\\main\\resources\\script\\%s.bat", bat);
 	}
 
 }
