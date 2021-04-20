@@ -2,35 +2,34 @@ package net.alepuzio.myvertxkata;
 
 import java.io.IOException;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Assertions;
 
-public class TestHTTPVerb extends TestCase {
+
+public class TestHTTPVerb  {
 
 	protected void setUp() throws Exception {
-		super.setUp();
 	}
 
 	protected void tearDown() throws Exception {
-		super.tearDown();
 	}
 
 	public void testGet() {
 		try {
 			Process get = Runtime.getRuntime().exec(command( "command-get"));
-			assertNotNull(get);
+			Assertions.assertNotNull(get);
 		} catch (IOException e) {
 			e.printStackTrace();
-			assertFalse(true);
+			Assertions.assertFalse(true);
 		}
 	}
 
 	public void testPost() {
 		try {
 			Process post = Runtime.getRuntime().exec(command( "command-post"));
-			assertNotNull(post);
+			Assertions.assertNotNull(post);
 		} catch (IOException e) {
 			e.printStackTrace();
-			assertFalse(true);
+			Assertions.assertFalse(true);
 		}
 	}
 

@@ -14,17 +14,21 @@ import io.vertx.ext.web.handler.StaticHandler;
 import net.alepuzio.myvertxkata.route.model.PostBean;
 
 public class MyThirdVerticle extends AbstractVerticle {
-    private final Map<Integer, PostBean> posts = new LinkedHashMap<>();
+    
+	private final Map<Integer, PostBean> posts = new LinkedHashMap<>();
 
     @Override
     public void start(Future<Void> fut) throws Exception {
-        final Router router = Router.router(vertx);
-        // Bind "/" to our hello message - so we are still compatible.
-        router.route("/").handler(routingContext -> {
-            HttpServerResponse response = routingContext.response();
-            response
-                    .putHeader("content-type", "text/html")
-                    .end("<H1>Hello By VERT.X Intre' Camp</H1>");
+        final Router router = Router.router(vertx);//create a route from a vertx
+
+        router
+        	.route("/")// Bind "/" to our hello message - so we are still compatible.
+        	.handler(routingContext -> {
+        		HttpServerResponse response = routingContext.response();
+        		response
+                .putHeader("content-type", "text/html")
+                .end("<H1>Hello By VERT.X Intre' Camp</H1>")//write in the body and close the chunk
+                ;
         });
 
         router.route("/asset/*").handler(StaticHandler.create("asset"));
