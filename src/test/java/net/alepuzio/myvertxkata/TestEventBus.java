@@ -26,5 +26,16 @@ public class TestEventBus  {
 		final EventBus eventBus2 = Vertx.vertx().eventBus();
 		Assertions.assertNotEquals(eventBus1, eventBus2);
 	}
+	
+	@Test
+	public void testConsumerDifferentInEventBusEqualsInSameVertx() {
+		final Vertx vertx = Vertx.vertx();// entry point
+		final EventBus eventBus1 = vertx.eventBus();
+		final EventBus eventBus2 = vertx.eventBus();
+		/*
+		 * One <i>Vertx</i> points to the one <i>EventBus</i>
+		 * */
+		Assertions.assertEquals(vertx.eventBus().consumer("aaa"), vertx.eventBus().consumer("aaa"));
+	}
 
 }
